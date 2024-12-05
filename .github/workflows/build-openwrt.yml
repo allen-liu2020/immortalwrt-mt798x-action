@@ -61,6 +61,11 @@ jobs:
           echo _$(date +"%Y%m%d%H%M")
           echo EOF
         }
+        {
+          echo 'DEVICE_NAME<<EOF'
+          echo 'xiaomi_redmi-router-ax6000'
+          echo EOF
+        }
 
     - name: Clone source code
       working-directory: /workdir
@@ -116,7 +121,7 @@ jobs:
         grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
         {
           echo 'DEVICE_NAME<<EOF'
-          [ -s DEVICE_NAME ] && cat DEVICE_NAME
+          echo 'xiaomi_redmi-router-ax6000'
           echo EOF
         } >> "$GITHUB_ENV"
         {
