@@ -56,9 +56,11 @@ jobs:
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
-        echo 'FILE_DATE<<EOF'
-        echo _$(date +"%Y%m%d%H%M")
-        echo EOF
+        {
+          echo 'FILE_DATE<<EOF'
+          echo _$(date +"%Y%m%d%H%M")
+          echo EOF
+        }
 
     - name: Clone source code
       working-directory: /workdir
