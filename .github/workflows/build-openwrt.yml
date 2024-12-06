@@ -121,10 +121,9 @@ jobs:
         grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
         {
           echo 'DEVICE_NAME<<EOF'
-          cat DEVICE_NAME
+          echo 'xiaomi_redmi-router-ax6000'
           echo EOF
         } >> "$GITHUB_ENV"
-        rm DEVICE_NAME
         {
           echo 'FILE_DATE<<EOF'
           echo _$(date +"%Y%m%d%H%M")
